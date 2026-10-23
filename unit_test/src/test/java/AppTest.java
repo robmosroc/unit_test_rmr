@@ -161,7 +161,7 @@ public class AppTest {
     // Comprobar que dos contraseñas iguales se aceptan
     @ParameterizedTest
     @ValueSource(strings = {"abcdefgh", "password", "HOLAMUNDO"})
-    void contrasenasIguales(String password) {
+    void passwordIguales(String password) {
         assertEquals(
                 PasswordChecker.PASSWORD_OK,
                 checker.check(password, password)
@@ -171,7 +171,7 @@ public class AppTest {
     // Comprobar que dos contraseñas diferentes dan error
     @ParameterizedTest
     @ValueSource(strings = {"password1", "HolaMundo", "ABCDEFGH"})
-    void contrasenasDiferentes(String password) {
+    void passwordDiferentes(String password) {
         assertEquals(
                 PasswordChecker.ERR_NO_MATCH,
                 checker.check(password, password + "hola")
@@ -233,7 +233,6 @@ public class AppTest {
         assertFalse(checker.getCheckUppers());
         assertFalse(checker.getCheckLowers());
     }
-
 }
 
 
